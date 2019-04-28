@@ -3,28 +3,36 @@ const path = require("path")
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 
 module.exports = {
-  entry: "./public/app.js"
+  entry: "./public/index.js"
   , devtool: "#source-map" //inline-source-map
   , output: {
     path: path.resolve("dist")
-    , filename: "./bundle.js"
+    , filename: "bundle.js"
     , publicPath: "/dist"
-  }
-  , resolve: {
-    extensions: [".js", ".jsx"]
   }
   , mode: "none"
   , module: {
     rules: [
       {
         test: /\.js$/
-        , exclude: /node_modules/
+        // , exclude: /node_modules/
         , use: {
           loader: "babel-loader"
           , options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"]
+            presets: ["@babel/preset-env"]
           }
         }
+      }
+      , {
+        // Loads the javacript into html template provided.
+        // Entry point is set below in HtmlWebPackPlugin in Plugins
+        // test: /\.html$/
+        // , use: [{loader: "html-loader"}]
+        // , options: { minimize: true }
+      }
+      , {
+        // test: /\.(png|svg|jpg|gif)$/
+        // , use: ["file-loader"]
       }
     ]
   }

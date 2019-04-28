@@ -1,8 +1,6 @@
 {
   "name": "tcwadc-webpack-boilerplate",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
     "build": "rm -rf dist && webpack",
     "express-server": "node ./server/server.js"
