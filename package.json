@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "rm -rf dist && webpack",
-    "express-server": "node ./server/server.js"
+    "express-server": "node ./server.js"
   },
   "author": "",
   "license": "ISC",
